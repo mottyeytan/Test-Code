@@ -3,6 +3,7 @@ import Header from '../Header/Header'
 import Sidebar from '../Sidebar/Sidebar'
 import CodeEditor from '../CodeEditor/CodeEditor'
 import OutputDisplay from '../OutputDisplay/OutputDisplay'
+import QuestionPanel from '../QuestionPanel/QuestionPanel'
 import './Layout.css'
 
 interface LayoutProps {
@@ -15,7 +16,8 @@ const Layout = ({ userName = 'User', initialTime = 3600 }: LayoutProps) => {
   const [output, setOutput] = useState('')
   const [isRunning, setIsRunning] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [activeMenuItem, setActiveMenuItem] = useState('problems')
+  const [activeMenuItem, setActiveMenuItem] = useState('test')
+  const [isQuestionVisible, setIsQuestionVisible] = useState(false)
 
   const handleCodeChange = (newCode: string) => {
     setCode(newCode)
@@ -69,6 +71,10 @@ const Layout = ({ userName = 'User', initialTime = 3600 }: LayoutProps) => {
     console.log(`Navigating to: ${itemId}`)
   }
 
+  const toggleQuestionPanel = () => {
+    setIsQuestionVisible(!isQuestionVisible)
+  }
+
   return (
     <div className="layout">
       <Header userName={userName} initialTime={initialTime} />
@@ -101,6 +107,22 @@ const Layout = ({ userName = 'User', initialTime = 3600 }: LayoutProps) => {
           </div>
         </main>
       </div>
+      
+      <QuestionPanel 
+        isVisible={isQuestionVisible} 
+        onToggle={toggleQuestionPanel} 
+      />
+      
+      {/* Emergency button if tab gets lost */}
+      {!isQuestionVisible && (
+        <button 
+          className="emergency-question-btn"
+          onClick={toggleQuestionPanel}
+          title="Open Question Panel"
+        >
+          ?
+        </button>
+      )}
     </div>
   )
 }

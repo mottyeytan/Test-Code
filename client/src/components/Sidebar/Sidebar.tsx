@@ -15,28 +15,28 @@ interface SidebarProps {
 const Sidebar = ({ activeItem, onItemClick }: SidebarProps) => {
   const menuItems: MenuItem[] = [
     {
-      id: 'problems',
-      label: 'Problems',
-      icon: '📝',
-      href: '#problems'
-    },
-    {
-      id: 'submissions',
-      label: 'Submissions',
-      icon: '📤',
-      href: '#submissions'
+      id: 'test',
+      label: 'Test',
+      icon: '⟨/⟩',
+      href: '#test'
     },
     {
       id: 'profile',
       label: 'Profile',
-      icon: '👤',
+      icon: '◉',
       href: '#profile'
     },
     {
-      id: 'settings',
-      label: 'Settings',
-      icon: '⚙️',
-      href: '#settings'
+      id: 'make-test',
+      label: 'Make Test',
+      icon: '⬢',
+      href: '#make-test'
+    },
+    {
+      id: 'statistics',
+      label: 'Statistics',
+      icon: '⟐',
+      href: '#statistics'
     }
   ]
 
@@ -49,16 +49,14 @@ const Sidebar = ({ activeItem, onItemClick }: SidebarProps) => {
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-header">
+      {/* <div className="sidebar-header">
         <h2 className="sidebar-title">
           Code Test System
         </h2>
-      </div>
+      </div> */}
       
       <nav className="nav-menu">
-        <h3 className="menu-title">
-          Menu
-        </h3>
+       
         
         <ul className="menu-list">
           {menuItems.map((item) => (

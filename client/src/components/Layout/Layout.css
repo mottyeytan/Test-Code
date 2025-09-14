@@ -21,7 +21,10 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
+
+
 
 .content-container {
   display: flex;
@@ -124,10 +127,46 @@
   outline: none;
 }
 
+/* Emergency question button */
+.emergency-question-btn {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  z-index: 999;
+  transition: all 0.2s ease;
+}
+
+.emergency-question-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.emergency-question-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
 /* Ensure content doesn't overflow on very small screens */
 @media (max-width: 320px) {
   .content-container {
     padding: 0.125rem;
     gap: 0.25rem;
+  }
+  
+  .emergency-question-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    right: 10px;
   }
 }
