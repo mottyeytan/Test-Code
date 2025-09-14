@@ -1,0 +1,133 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f5f7fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.layout-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-container {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.editor-panel {
+  flex: 1;
+  min-width: 0; /* Allow shrinking */
+  display: flex;
+  flex-direction: column;
+}
+
+.output-panel {
+  flex: 1;
+  min-width: 0; /* Allow shrinking */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .content-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .editor-panel,
+  .output-panel {
+    flex: none;
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout-content {
+    flex-direction: column;
+  }
+  
+  .content-container {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .editor-panel,
+  .output-panel {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 0.25rem;
+  }
+  
+  .editor-panel,
+  .output-panel {
+    height: 35vh;
+  }
+}
+
+/* Ensure proper sizing for mobile */
+@media (max-height: 600px) {
+  .editor-panel,
+  .output-panel {
+    height: 45vh;
+  }
+}
+
+/* High DPI display support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .layout {
+    font-feature-settings: "liga", "kern";
+  }
+}
+
+/* Dark mode support (if needed in the future) */
+@media (prefers-color-scheme: dark) {
+  .layout {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus management for better keyboard navigation */
+.layout:focus-within {
+  outline: none;
+}
+
+/* Ensure content doesn't overflow on very small screens */
+@media (max-width: 320px) {
+  .content-container {
+    padding: 0.125rem;
+    gap: 0.25rem;
+  }
+}
